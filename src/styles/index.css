@@ -47,13 +47,15 @@ body{
 }
 
 .task_icon{
-    width: 10rem;
     position: absolute;
     right: 1px;
     opacity: 0;
     text-align: end;
 }
 
-.task_icon:hover{
-    opacity: 50%;
+.add_Task:hover{
+    .task_icon{
+        opacity: 50%;
+    }
 }
+

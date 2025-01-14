@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 const Home = () => {
@@ -18,6 +18,7 @@ const Home = () => {
 	const handleKeyPress = (event) =>{
 		let keyDown;
 		if(event.key === "Enter"){
+			event.preventDefault()
 			keyDown = addTask()
 		}
 		return keyDown
@@ -28,6 +29,16 @@ const Home = () => {
 		tareas.splice(index,1)
 		setTodosList(tareas)
 	};	
+
+	useEffect(()=>{
+		if(todosList.length >= 13){
+			Swal.fire({
+				title: "Quieres seguir Agregando Tarea",
+				text: "Llevas 13 tareas agregadas",
+				icon: "question"
+			  });
+		}
+	}, [todosList])
 
 	return (
 		<>
